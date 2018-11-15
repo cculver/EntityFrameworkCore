@@ -20,7 +20,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Internal
     public sealed class WeakReferenceIdentityMap<TKey> : IWeakReferenceIdentityMap
     {
         private const int IdentityMapGarbageCollectionThreshold = 500;
-        private int _identityMapGarbageCollectionIterations;
+        //private int _identityMapGarbageCollectionIterations;
         private readonly Dictionary<TKey, WeakReference<object>> _identityMap;
 
         /// <summary>
@@ -102,6 +102,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Internal
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void CollectGarbage()
         {
+            /*
             if (++_identityMapGarbageCollectionIterations == IdentityMapGarbageCollectionThreshold)
             {
                 var deadEntries = new List<TKey>();
@@ -120,7 +121,7 @@ namespace Microsoft.EntityFrameworkCore.Query.Internal
                 }
 
                 _identityMapGarbageCollectionIterations = 0;
-            }
+            }*/
         }
 
         /// <summary>
